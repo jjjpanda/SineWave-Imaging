@@ -34,7 +34,7 @@ def createImg(dim, factor, waves, colorSplit, originSplit):
         for x in range(0, w):
             for y in range(0, h):
                 if colorSplit:
-                    data[x,y][colorCount] += colorSin(wave, waveOrigins[waveCount], x, y, factor, len(waves))
+                    data[x,y][colorCount] += colorSin(wave, waveOrigins[waveCount], x, y, factor, 1)
                     data[x,y][colorCount] %= 256
                 else:
                     v = colorSin(wave, waveOrigins[waveCount], x, y, factor, len(waves))
@@ -60,19 +60,8 @@ intervalRatios = [1, 16/15, 9/8, 6/5, 5/4, 4/3, 7/5, 3/2, 8/5, 5/3, 9/5, 15/8, 2
 intervalNames = ["U", "mi2", "M2", "mi3", "M3", "P4", "T", "P5", "mi6", "M6", "mi7", "M7", "O"]
 
 def tetImages(dim, factor, base, colorDif = False, originDif = False): 
-    saveImage(dim, factor,[base, base*intervalRatios[0]], intervalNames[0], colorDif, originDif)
-    saveImage(dim, factor,[base, base*intervalRatios[1]], intervalNames[1], colorDif, originDif)
-    saveImage(dim, factor,[base, base*intervalRatios[2]], intervalNames[2], colorDif, originDif)
-    saveImage(dim, factor,[base, base*intervalRatios[3]], intervalNames[3], colorDif, originDif)
-    saveImage(dim, factor,[base, base*intervalRatios[4]], intervalNames[4], colorDif, originDif)
-    saveImage(dim, factor,[base, base*intervalRatios[5]], intervalNames[5], colorDif, originDif)
-    saveImage(dim, factor,[base, base*intervalRatios[6]], intervalNames[6], colorDif, originDif)
-    saveImage(dim, factor,[base, base*intervalRatios[7]], intervalNames[7], colorDif, originDif)
-    saveImage(dim, factor,[base, base*intervalRatios[8]], intervalNames[8], colorDif, originDif)
-    saveImage(dim, factor,[base, base*intervalRatios[9]], intervalNames[9], colorDif, originDif)
-    saveImage(dim, factor,[base, base*intervalRatios[10]], intervalNames[10], colorDif, originDif)
-    saveImage(dim, factor,[base, base*intervalRatios[11]], intervalNames[11], colorDif, originDif)
-    saveImage(dim, factor,[base, base*intervalRatios[12]], intervalNames[12], colorDif, originDif)
+    for i in range(0, 13):
+        saveImage(dim, factor,[base, base*intervalRatios[i]], intervalNames[i], colorDif, originDif)
 
 def chordImages(dim, factor, base, colorDif = False, originDif = False):
     saveImage(dim, factor, [base, base*intervalRatios[4], base*intervalRatios[7]], "major", colorDif, originDif)
@@ -100,11 +89,11 @@ def intervalAnalysis(filename):
                 count = count - 0
     return count
 
-tetImages(512, 15, 200, False, False)
+#tetImages(512, 1, 200, False, False)
 
-chordImages(512, 15, 200, False, False)
+#chordImages(512, 1, 200, False, False)
 
 #intervalsAnalysisArray = [intervalAnalysis(intervalNames[0]+".png"),intervalAnalysis(intervalNames[1]+".png"),intervalAnalysis(intervalNames[2]+".png"),intervalAnalysis(intervalNames[3]+".png"),intervalAnalysis(intervalNames[4]+".png"),intervalAnalysis(intervalNames[5]+".png"),intervalAnalysis(intervalNames[6]+".png"),intervalAnalysis(intervalNames[7]+".png"),intervalAnalysis(intervalNames[8]+".png"),intervalAnalysis(intervalNames[9]+".png"),intervalAnalysis(intervalNames[10]+".png"),intervalAnalysis(intervalNames[11]+".png"),intervalAnalysis(intervalNames[12]+".png")]
 #print(intervalsAnalysisArray)
 
-#showImage(512, 15, [200, 245], originSplit= False, colorSplit=False)
+showImage(512, 1, [200, 300], originSplit= False, colorSplit=True)
