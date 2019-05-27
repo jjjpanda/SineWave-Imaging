@@ -89,11 +89,11 @@ def intervalAnalysis(filename):
                 count = count - 0
     return count
 
-#tetImages(512, 1, 200, False, False)
+tetImages(512, 1, 200, True, False)
 
-#chordImages(512, 1, 200, False, False)
+#chordImages(512, 1, 200, True, False)
 
 #intervalsAnalysisArray = [intervalAnalysis(intervalNames[0]+".png"),intervalAnalysis(intervalNames[1]+".png"),intervalAnalysis(intervalNames[2]+".png"),intervalAnalysis(intervalNames[3]+".png"),intervalAnalysis(intervalNames[4]+".png"),intervalAnalysis(intervalNames[5]+".png"),intervalAnalysis(intervalNames[6]+".png"),intervalAnalysis(intervalNames[7]+".png"),intervalAnalysis(intervalNames[8]+".png"),intervalAnalysis(intervalNames[9]+".png"),intervalAnalysis(intervalNames[10]+".png"),intervalAnalysis(intervalNames[11]+".png"),intervalAnalysis(intervalNames[12]+".png")]
 #print(intervalsAnalysisArray)
 
-showImage(512, 1, [200, 300], originSplit= False, colorSplit=True)
+#showImage(512, 1, [200, 300], originSplit= False, colorSplit=True)
